@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:5.7
+   
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: nader
+    ports:
+      - "3307:3306"
+  
+  spring-boot-app:
+    build: /.
+    environment:
+     SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/Bank?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    depends_on:
+      - db
+    image: spring-app
+    ports:
+      - "8080:8040"
+    restart: always
+
+   
+
+
