@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 public class IcinBankApplication {
 	
-	@RequestMapping("/")
+	@RequestMapping("/hello")
 	  public String home() {
 	    return "Hello Docker world";
 	  }
